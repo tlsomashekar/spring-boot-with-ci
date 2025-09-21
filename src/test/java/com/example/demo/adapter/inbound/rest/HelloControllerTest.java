@@ -22,9 +22,9 @@ class HelloControllerTest {
 
     @Test
     void helloEndpointReturnsGreeting() throws Exception {
-        when(greetingService.getGreeting()).thenReturn("Hello, World!");
-        mockMvc.perform(get("/"))
+        when(greetingService.getGreeting()).thenReturn("heeloworld");
+        mockMvc.perform(get("/api/v1/hello"))
                 .andExpect(status().isOk())
-                .andExpect(content().string("Hello, World!"));
+                .andExpect(content().string("heeloworld"));
     }
 }

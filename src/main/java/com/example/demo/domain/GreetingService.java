@@ -2,6 +2,6 @@ package com.example.demo.domain;
 
 public interface GreetingService {
     default String getGreeting() {
-        return "heeloworld";
+        return "hello world";
     }
 }

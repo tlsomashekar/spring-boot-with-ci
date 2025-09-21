@@ -7,6 +7,6 @@ import org.springframework.stereotype.Service;
 public class GreetingServiceImpl implements GreetingService {
     @Override
     public String getGreeting() {
-        return "Hello, World!";
+        return "heeloworld";
     }
 }

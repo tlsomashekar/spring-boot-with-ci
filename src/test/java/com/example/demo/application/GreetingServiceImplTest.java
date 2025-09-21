@@ -8,6 +8,6 @@ class GreetingServiceImplTest {
     @Test
     void testGreeting() {
         GreetingService service = new GreetingServiceImpl();
-        assertEquals("Hello, World!", service.getGreeting());
+    assertEquals("heeloworld", service.getGreeting());
     }
 }

@@ -29,7 +29,7 @@ class BookControllerTest {
     void testCreateBook() throws Exception {
         Book book = new Book(1L, "Title", "Author");
         when(bookService.save(any(Book.class))).thenReturn(book);
-        mockMvc.perform(post("/books")
+    mockMvc.perform(post("/api/v1/books")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{\"title\":\"Title\",\"author\":\"Author\"}"))
                 .andExpect(status().isOk())
@@ -41,7 +41,7 @@ class BookControllerTest {
     @Test
     void testGetAllBooks() throws Exception {
         when(bookService.findAll()).thenReturn(Arrays.asList(new Book(1L, "T", "A")));
-        mockMvc.perform(get("/books"))
+    mockMvc.perform(get("/api/v1/books"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].id").value(1L));
     }
@@ -49,14 +49,14 @@ class BookControllerTest {
     @Test
     void testGetBookById() throws Exception {
         when(bookService.findById(1L)).thenReturn(Optional.of(new Book(1L, "T", "A")));
-        mockMvc.perform(get("/books/1"))
+    mockMvc.perform(get("/api/v1/books/1"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").value(1L));
     }
 
     @Test
     void testDeleteBook() throws Exception {
-        mockMvc.perform(delete("/books/1"))
+    mockMvc.perform(delete("/api/v1/books/1"))
                 .andExpect(status().isNoContent());
     }
 }
